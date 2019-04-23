@@ -11,7 +11,7 @@ class AuthController extends Controller
      * Login the user.
      *
      * @param Request $request
-     * @return \Illuminate\Http\JsonResponse
+     * @return JsonResponse
      */
     public function login(Request $request) {
         $credentials = $request->only(['email', 'password']);

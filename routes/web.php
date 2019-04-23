@@ -11,12 +11,10 @@
 |
 */
 $router->group(['prefix' => 'api'], function ($router) {
-
     $router->get('/questions','QuestionController@list');
+    $router->get('/questions/show/{id}','QuestionController@getById');
+    $router->post('/questions/delete/{id}','QuestionController@delete');
     $router->group(['middleware' => 'jwt'], function ($router) {
-        $router->get('/test', function () use ($router) {   
-            return 'test';
-        });
-        $router->get('/users', 'test'); 
+        $router->post('/login', 'AuthController@login');
     });
 });
